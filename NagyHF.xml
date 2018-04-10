@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model id="828610686">
+    <nodes>
+        <chanceNode type="default" group="default" id="Hungry" x="323" y="287" index="0">
+            <cpd>
+                <table>
+                    <distribution values="0.625000,0.375000"/>
+                </table>
+            </cpd>
+        </chanceNode>
+        <chanceNode type="default" group="default" id="Sleeping" x="139" y="288" index="1">
+            <cpd>
+                <table>
+                    <distribution values="0.550000,0.450000"/>
+                </table>
+            </cpd>
+        </chanceNode>
+        <chanceNode type="default" group="default" id="InBackyard" x="347" y="140" index="2">
+            <cpd>
+                <table>
+                    <distribution values="0.500000,0.500000"/>
+                </table>
+            </cpd>
+        </chanceNode>
+        <chanceNode type="default" group="default" id="Peting" x="258" y="110" index="3">
+            <cpd>
+                <table>
+                    <distribution values="0.500000,0.500000"/>
+                </table>
+            </cpd>
+        </chanceNode>
+        <chanceNode type="default" group="default" id="PeopleWalkingBy" x="159" y="151" index="4">
+            <cpd>
+                <table>
+                    <distribution values="0.500000,0.500000"/>
+                </table>
+            </cpd>
+        </chanceNode>
+        <chanceNode type="default" group="default" id="Healthy" x="373" y="216" index="5">
+            <parents>
+                <parent index="0" node="BrokenBone"/>
+                <parent index="1" node="Illness"/>
+            </parents>
+            <cpd>
+                <table>
+                    <distribution parentValues="true,true" values="0.500000,0.500000"/>
+                    <distribution parentValues="true,false" values="0.500000,0.500000"/>
+                    <distribution parentValues="false,true" values="0.500000,0.500000"/>
+                    <distribution parentValues="false,false" values="0.500000,0.500000"/>
+                </table>
+            </cpd>
+        </chanceNode>
+        <chanceNode type="default" group="default" id="BrokenBone" x="494" y="192" index="6">
+            <cpd>
+                <table>
+                    <distribution values="0.500000,0.500000"/>
+                </table>
+            </cpd>
+        </chanceNode>
+        <chanceNode type="default" group="default" id="Illness" x="489" y="277" index="7">
+            <cpd>
+                <table>
+                    <distribution values="0.500000,0.500000"/>
+                </table>
+            </cpd>
+        </chanceNode>
+        <chanceNode type="default" group="default" id="Barking" x="83" y="228" index="8">
+            <cpd>
+                <tree x="400" y="75">
+                    <distribution values="0.500000,0.500000"/>
+                </tree>
+            </cpd>
+        </chanceNode>
+        <chanceNode type="default" group="default" id="Playing" x="229" y="330" index="9">
+            <cpd>
+                <table>
+                    <distribution values="0.500000,0.500000"/>
+                </table>
+            </cpd>
+        </chanceNode>
+    </nodes>
+    <types>
+        <enumType id="default" final="true">
+            <values>
+                <value id="true" lowerBound="1.0" upperBound="1.0"/>
+                <value id="false" lowerBound="0.0" upperBound="0.0"/>
+            </values>
+        </enumType>
+    </types>
+    <groups>
+        <group id="default" r="255" g="255" b="255" final="true"/>
+    </groups>
+</model>
