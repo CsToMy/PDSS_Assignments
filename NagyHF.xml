@@ -1,42 +1,54 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model id="828610686">
+<model id="2124731287">
     <nodes>
-        <chanceNode type="default" group="default" id="Hungry" x="323" y="287" index="0">
+        <chanceNode type="default" group="default" id="Hungry" x="290" y="281" index="0">
+            <parents>
+                <parent index="0" node="Healthy"/>
+            </parents>
             <cpd>
                 <table>
-                    <distribution values="0.625000,0.375000"/>
+                    <distribution parentValues="true" values="0.500000,0.500000"/>
+                    <distribution parentValues="false" values="0.500000,0.500000"/>
                 </table>
             </cpd>
         </chanceNode>
-        <chanceNode type="default" group="default" id="Sleeping" x="139" y="288" index="1">
+        <chanceNode type="default" group="default" id="Sleeping" x="71" y="283" index="1">
+            <parents>
+                <parent index="0" node="Hungry"/>
+                <parent index="1" node="Healthy"/>
+            </parents>
             <cpd>
                 <table>
-                    <distribution values="0.550000,0.450000"/>
+                    <distribution parentValues="true,true" values="0.500000,0.500000"/>
+                    <distribution parentValues="true,false" values="0.500000,0.500000"/>
+                    <distribution parentValues="false,true" values="0.500000,0.500000"/>
+                    <distribution parentValues="false,false" values="0.500000,0.500000"/>
                 </table>
             </cpd>
         </chanceNode>
-        <chanceNode type="default" group="default" id="InBackyard" x="347" y="140" index="2">
+        <chanceNode type="default" group="default" id="InTheGarden" x="284" y="115" index="2">
+            <parents>
+                <parent index="0" node="Healthy"/>
+            </parents>
             <cpd>
                 <table>
-                    <distribution values="0.500000,0.500000"/>
+                    <distribution parentValues="true" values="0.500000,0.500000"/>
+                    <distribution parentValues="false" values="0.500000,0.500000"/>
                 </table>
             </cpd>
         </chanceNode>
-        <chanceNode type="default" group="default" id="Peting" x="258" y="110" index="3">
+        <chanceNode type="default" group="default" id="Peting" x="182" y="55" index="3">
+            <parents>
+                <parent index="0" node="InTheGarden"/>
+            </parents>
             <cpd>
                 <table>
-                    <distribution values="0.500000,0.500000"/>
+                    <distribution parentValues="true" values="0.500000,0.500000"/>
+                    <distribution parentValues="false" values="0.500000,0.500000"/>
                 </table>
             </cpd>
         </chanceNode>
-        <chanceNode type="default" group="default" id="PeopleWalkingBy" x="159" y="151" index="4">
-            <cpd>
-                <table>
-                    <distribution values="0.500000,0.500000"/>
-                </table>
-            </cpd>
-        </chanceNode>
-        <chanceNode type="default" group="default" id="Healthy" x="373" y="216" index="5">
+        <chanceNode type="default" group="default" id="Healthy" x="320" y="175" index="4">
             <parents>
                 <parent index="0" node="BrokenBone"/>
                 <parent index="1" node="Illness"/>
@@ -50,31 +62,85 @@
                 </table>
             </cpd>
         </chanceNode>
-        <chanceNode type="default" group="default" id="BrokenBone" x="494" y="192" index="6">
+        <chanceNode type="default" group="default" id="BrokenBone" x="411" y="146" index="5">
             <cpd>
                 <table>
                     <distribution values="0.500000,0.500000"/>
                 </table>
             </cpd>
         </chanceNode>
-        <chanceNode type="default" group="default" id="Illness" x="489" y="277" index="7">
+        <chanceNode type="default" group="default" id="Illness" x="403" y="225" index="6">
             <cpd>
                 <table>
                     <distribution values="0.500000,0.500000"/>
                 </table>
             </cpd>
         </chanceNode>
-        <chanceNode type="default" group="default" id="Barking" x="83" y="228" index="8">
+        <chanceNode type="default" group="default" id="Barking" x="39" y="193" index="7">
+            <parents>
+                <parent index="0" node="Hungry"/>
+                <parent index="1" node="Sleeping"/>
+                <parent index="2" node="InTheGarden"/>
+                <parent index="3" node="Peting"/>
+                <parent index="4" node="Playing"/>
+                <parent index="5" node="SomeoneBeforeTheGate"/>
+            </parents>
             <cpd>
-                <tree x="400" y="75">
-                    <distribution values="0.500000,0.500000"/>
+                <tree x="385" y="64">
+                    <condition index="2" value="true" x="320" y="159">
+                        <condition index="0" value="true" x="125" y="253">
+                            <condition index="5" value="Friend" x="11" y="352">
+<distribution values="0.500000,0.500000"/>
+                            </condition>
+                            <condition index="5" value="Netural" x="108" y="350">
+<distribution values="0.500000,0.500000"/>
+                            </condition>
+                            <condition index="5" value="Enemy" x="177" y="345">
+<distribution values="0.500000,0.500000"/>
+                            </condition>
+                            <condition index="5" value="FamilyMember" x="261" y="352">
+<distribution values="0.500000,0.500000"/>
+                            </condition>
+                        </condition>
+                        <condition index="0" value="false" x="490" y="250">
+                            <condition index="5" value="Friend" x="348" y="354">
+<distribution values="0.500000,0.500000"/>
+                            </condition>
+                            <condition index="5" value="Netural" x="456" y="357">
+<distribution values="0.500000,0.500000"/>
+                            </condition>
+                            <condition index="5" value="Enemy" x="545" y="360">
+<distribution values="0.500000,0.500000"/>
+                            </condition>
+                            <condition index="5" value="FamilyMember" x="637" y="363">
+<distribution values="0.500000,0.500000"/>
+                            </condition>
+                        </condition>
+                    </condition>
+                    <condition index="2" value="false" x="554" y="151">
+                        <distribution values="0.500000,0.500000"/>
+                    </condition>
                 </tree>
             </cpd>
         </chanceNode>
-        <chanceNode type="default" group="default" id="Playing" x="229" y="330" index="9">
+        <chanceNode type="default" group="default" id="Playing" x="185" y="307" index="8">
+            <parents>
+                <parent index="0" node="InTheGarden"/>
+                <parent index="1" node="Healthy"/>
+            </parents>
             <cpd>
                 <table>
-                    <distribution values="0.500000,0.500000"/>
+                    <distribution parentValues="true,true" values="0.500000,0.500000"/>
+                    <distribution parentValues="true,false" values="0.500000,0.500000"/>
+                    <distribution parentValues="false,true" values="0.500000,0.500000"/>
+                    <distribution parentValues="false,false" values="0.500000,0.500000"/>
+                </table>
+            </cpd>
+        </chanceNode>
+        <chanceNode type="PersonType" group="default" id="SomeoneBeforeTheGate" x="69" y="91" index="9">
+            <cpd>
+                <table>
+                    <distribution values="0.250000,0.250000,0.250000,0.250000"/>
                 </table>
             </cpd>
         </chanceNode>
@@ -84,6 +150,14 @@
             <values>
                 <value id="true" lowerBound="1.0" upperBound="1.0"/>
                 <value id="false" lowerBound="0.0" upperBound="0.0"/>
+            </values>
+        </enumType>
+        <enumType id="PersonType">
+            <values>
+                <value id="Friend" lowerBound="10.0" upperBound="20.0"/>
+                <value id="Netural" lowerBound="30.0" upperBound="40.0"/>
+                <value id="Enemy" lowerBound="50.0" upperBound="60.0"/>
+                <value id="FamilyMember" lowerBound="70.0" upperBound="80.0"/>
             </values>
         </enumType>
     </types>
